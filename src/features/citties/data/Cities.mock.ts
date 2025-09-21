@@ -1,3 +1,4 @@
+import { officeSpace } from "@/features/offices/data/officeSpaces.mock";
 import { City } from "../types/city.types";
 
 const cityNames = [
@@ -14,12 +15,12 @@ const cityNames = [
 ];
 
 export const cities: City[] = cityNames.map((name, i) => {
-    // const officeCount = officeSpace.filter((space) => space.location === name).length;
+    const officeCount = officeSpace.filter((space) => space.location === name).length;
 
     return {
         id: i + 1,
         name,
-        officeCount: 1,
+        officeCount: officeCount,
         image: `/assets/images/thumbnails/thumbnails-${(i % 3) + 1}.png`,
         slug: name.toLowerCase().replace(/ /g, "-"),
     };
